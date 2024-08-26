@@ -4,7 +4,7 @@
   "description": " A basic starter for an express.js API with Typescript. Ilkka added gts",
   "main": "src/index.ts",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node dist/src/index.js",
     "dev": "nodemon src/index.ts",
     "build": "tsc",
     "lint": "eslint --fix src test",
@@ -31,6 +31,7 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/geojson": "^7946.0.14",
+    "@types/jest": "^29.5.12",
     "@types/morgan": "^1.9.9",
     "eslint": "^9.9.0",
     "globals": "^15.9.0",
