@@ -1,10 +1,22 @@
 import express from 'express';
-import { getAnimals, postAnimal, getOneAnimal, putAnimal, deleteAnimal, getAnimalsByBox } from '../controllers/animalController';
+import {
+  deleteAnimal,
+  getSingleAnimal,
+  getAnimal,
+  postAnimal,
+  putAnimal,
+  getAnimalsByBox,
+  getBySpecies,
+} from '../controllers/animalController';
 
 const router = express.Router();
 
-router.route('/').get(getAnimals).post(postAnimal);
+router.route('/').post(postAnimal).get(getAnimal);
 
-router.route("/location").get(getAnimalsByBox);
+router.route('/location').get(getAnimalsByBox);
 
-router.route('/:id').get(getOneAnimal).put(putAnimal).delete(deleteAnimal);
+router.route('/species/:species').get(getBySpecies);
+
+router.route('/:id').get(getSingleAnimal).put(putAnimal).delete(deleteAnimal);
+
+export default router;

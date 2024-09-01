@@ -13,4 +13,3 @@ const port = process.env.PORT || 3000;
     console.error('Error starting server: ', (error as Error).message);
   }
 })();
-

@@ -1,8 +1,21 @@
 import express from 'express';
-import { getSpecies, postSpecies, getOneSpecies, putSpecies, deleteSpecies } from '../controllers/speciesController';
+import {
+  deleteSpecies,
+  getSingleSpecies,
+  getSpecies,
+  postSpecies,
+  putSpecies,
+} from '../controllers/speciesController';
+import {addImageToSpecies} from '../../middlewares';
 
 const router = express.Router();
 
-router.route('/').get(getSpecies).post(postSpecies);
+router.route('/').post(addImageToSpecies, postSpecies).get(getSpecies);
 
-router.route('/:id').get(getOneSpecies).put(putSpecies).delete(deleteSpecies);
+router
+  .route('/:id')
+  .get(getSingleSpecies)
+  .put(putSpecies)
+  .delete(deleteSpecies);
+
+export default router;
